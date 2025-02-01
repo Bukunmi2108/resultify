@@ -12,7 +12,7 @@ const Navbar = () => {
         </span>
 
         <ul className='font-poppins text-md font-light flex gap-4'>
-          <li><Link to={'/'}>Tutorials</Link></li>
+          <li><Link to={'/settings'}>Settings</Link></li>
           <li><Link to={'/signup'}>Signup</Link></li>
           <li><Link to={'/login'}>Login</Link></li>
         </ul>

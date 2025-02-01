@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { Logo, Input, Button } from '../../components'
-import { useNavigate } from 'react-router-dom';
-import authService from '../../service/authService';
+import Button from '../atoms/Button'
+import Input from '../atoms/Input'
+import Logo from '../atoms/Logo'
+import { useNavigate } from 'react-router-dom'
+import authService from '../../service/authService'
 
-const Logintemplate = () => {
+const Adminlogintemplate = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -19,9 +21,11 @@ const Logintemplate = () => {
     e.preventDefault();
   
     try {
-      const res = await authService.login(formData.email, formData.password)
+      const res = await authService.adminLogin(formData.email, formData.password)
       alert('Login successful');
-      navigate('/feed');
+      navigate('/adminfeed');
+      
+
     } catch (error) {
       alert(error.response.data.message)
       console.log(error);
@@ -32,7 +36,7 @@ const Logintemplate = () => {
       <div className='mx-auto flex flex-col items-center justify-center gap-1'>
         <Logo />
         <h2 className='font-sans text-2xl font-bold text-center'>Login</h2>
-        <p className='text-center font-poppins font-light text-sm'>Check your Result here at Resultify</p>
+        <p className='text-center font-poppins font-light text-sm'>Login as an Admin</p>
       </div>
 
       <form onSubmit={onSubmit} className='flex flex-col gap-6 mt-8 mx-auto w-full max-w-4xl'>
@@ -62,9 +66,9 @@ const Logintemplate = () => {
           <Button link={'/signup'} text={'Sign up'} size='medium' type='secondary' className={'flex-1'}/>
         </div>
       </form>
-      <div onClick={() => {navigate('/adminlogin')}} className='text-xs text-center mt-2 font-poppins hover:underline font-light hover:text-primaryBlue cursor-pointer'>Login as an Admin</div>
+      <div onClick={() => {navigate('/login')}} className='text-xs text-center mt-2 font-poppins hover:underline font-light hover:text-primaryBlue cursor-pointer'>Login as a User</div>
     </main>
   )
 }
 
-export default Logintemplate
+export default Adminlogintemplate

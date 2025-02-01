@@ -7,7 +7,7 @@ const Homepagetemplate = () => {
       <section>
         <div className='mx-auto py-32 flex flex-col items-center justify-center gap-8'>
           <h1 className='text-6xl font-bold font-sans text-center'>A One-way solution for result checking</h1>
-          <Button text={'Get started'} size='large' />
+          <Button link={'/signup'} text={'Get started'} size='large' />
         </div>
       </section>
       

@@ -14,7 +14,7 @@ const SideLink = ({title, children, link}) => {
       {children && toggle && <div className='flex flex-col w-full divide-y divide-primaryBlue'>
         {
           children.map((j, index) => (
-            <Link to={j.link} className='bg-white text-primaryBlue
+            <Link key={index} to={j.link} className='bg-white text-primaryBlue
              font-poppins text-sm p-4 w-full'>{j.text}</Link>
           ))
         }

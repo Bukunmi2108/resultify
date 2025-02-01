@@ -21,7 +21,7 @@ const Nav = () => {
 
   const Centre = [
   { text: 'Add new Centre', link: '/addcentre' },
-  { text: 'View all Centres', link: '/' },
+  { text: 'View all Centres', link: '/allcentre' },
   ];
 
   const Student = [

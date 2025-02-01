@@ -1,27 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {AdminCon, AdminFeedMiniDisplay, Button} from '../../components'
 import { PiStudentLight } from "react-icons/pi";
 import { FiUsers } from "react-icons/fi";
 import { FaSchool } from "react-icons/fa";
 import { TbUserShare } from "react-icons/tb";
+import userService from '../../service/userService';
+import centreService from '../../service/centreService';
+import studentService from '../../service/studentService';
 
 
 const Adminfeedtemplate = () => {
+
+  const [allUsers, setAllUsers] = useState(0)
+  const [allStudents, setAllStudents] = useState(0)
+  const [allCentres, setAllCentres] = useState(0)
+
   const widgets = [
     {
       icon: <PiStudentLight className='w-12 h-12 text-gray-800' />, 
-      count: 7800, 
+      count: allStudents, 
       desc: 'Total Students'
     },
     {
       icon: <FiUsers className='w-12 h-12 text-gray-800' />, 
-      count: 2300, 
+      count: allUsers, 
       desc: 'Total Users'
     },
     {
       icon: <FaSchool className='w-12 h-12 text-gray-800' />, 
-      count: 7800, 
-      desc: 'Total Students'
+      count: allCentres, 
+      desc: 'Total Exam Centres'
     },
     {
       icon: <TbUserShare  className='w-12 h-12 text-primaryBlue' />, 
@@ -39,6 +47,25 @@ const Adminfeedtemplate = () => {
       desc: 'Flagged Requests'
     },
   ]
+
+  useEffect(() => {
+    const fetchUsers = async() => {
+      const res = await userService.getAllUser()
+      setAllUsers(res)
+    }
+    const fetchCentres = async() => {
+      const res = await centreService.getAllCentres()
+      setAllCentres(res)
+    }
+    const fetchStudents = async() => {
+      const res = await studentService.getAllStudents()
+      setAllStudents(res)
+    }
+    fetchStudents()
+    fetchCentres()
+    fetchUsers()
+  }, [])
+
   return (
     <AdminCon>
       <section className='py-4 mx-auto max-w-6xl p-2'>

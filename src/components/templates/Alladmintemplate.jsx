@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminCon from '../organisms/AdminCon'
-import Button from '../atoms/Button'
+import adminService from '../../service/adminService'
 
 const Addadmintemplate = () => {
+  const [admins, setAdmins] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await adminService.allAdmin()
+      setAdmins(response)
+    }
+    fetchData()
+  }, [])
   return (
     <AdminCon>
       <section className='py-4 mx-auto max-w-6xl p-2'>
@@ -15,15 +24,19 @@ const Addadmintemplate = () => {
               <th className='p-4'>S/N</th>
               <th className='p-4'>Full Name</th>
               <th className='p-4'>Email</th>
+              <th className='p-4'>Phone Number</th>
             </tr>
           </thead>
-          <tbody className='bg-gray-100 b-3 divide-y divide-gray-500'>            
-            <tr className=''>
-              <td className='p-4'>1</td>
-              <td className='p-4'>Bukunmi Akinyemi</td>
-              <td className='p-4'>bkakinyemi21@gmail.com</td>
-            </tr>
-          </tbody>
+          {admins && <tbody className='bg-gray-100 b-3 divide-y divide-gray-500'>
+            {admins.map((admin, index) => (
+              <tr key={index} className=''>
+                <td className='p-4'>{index + 1}</td>
+                <td className='p-4'>{admin.first_name + ' ' + admin.last_name}</td>
+                <td className='p-4'>{admin.email}</td>
+                <td className='p-4'>{admin.phone_number}</td>
+              </tr>
+            ))}            
+          </tbody>}
         </table>
       </section>
     </AdminCon>

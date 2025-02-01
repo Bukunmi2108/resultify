@@ -1,5 +1,6 @@
 export { default as Logo } from './atoms/Logo'
 export { default as Input } from './atoms/Input'
+export { default as Input_sm } from './atoms/Input_sm'
 export { default as Button } from './atoms/Button'
 
 
@@ -15,7 +16,9 @@ export { default as AdminCon } from './organisms/AdminCon'
 export { default as Homepagetemplate } from './templates/Homepagetemplate'
 export { default as Signuptemplate } from './templates/Signuptemplate'
 export { default as Logintemplate } from './templates/Logintemplate'
+export { default as Adminlogintemplate } from './templates/Adminlogintemplate'
 export { default as Userfeedtemplate } from './templates/Userfeedtemplate'
+export { default as ProfileTemplate } from './templates/ProfileTemplate'
 export { default as Settingstemplate } from './templates/Settingstemplate'
 export { default as Userresulttemplate } from './templates/Userresulttemplate'
 export { default as Adminfeedtemplate } from './templates/Adminfeedtemplate'
@@ -24,6 +27,7 @@ export { default as Addsubjecttemplate } from './templates/Addsubjecttemplate'
 export { default as Allsubjecttemplate } from './templates/Allsubjecttemplate'
 
 export { default as Addcentretemplate } from './templates/Addcentretemplate'
+export { default as Allcentretemplate } from './templates/Allcentretemplate'
 
 export { default as Addstudenttemplate } from './templates/Addstudenttemplate'
 export { default as Allstudenttemplate } from './templates/Allstudenttemplate'
