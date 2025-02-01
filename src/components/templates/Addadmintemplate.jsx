@@ -44,7 +44,7 @@ const Addadmintemplate = () => {
             name={'first_name'}
             label={'First Name'} 
             type='text'
-            placeholder={'Enter Student First Name'}
+            placeholder={'Enter Admin First Name'}
             value={formData.first_name}
             onChange={handleChange}
             required
@@ -53,7 +53,7 @@ const Addadmintemplate = () => {
             label={'Last Name'} 
             name={'last_name'}
             type='text'
-            placeholder={'Enter Student Last Name'}
+            placeholder={'Enter Admin Last Name'}
             value={formData.last_name}
             onChange={handleChange}
             required

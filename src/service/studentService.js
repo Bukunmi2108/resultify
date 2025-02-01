@@ -56,7 +56,7 @@ const studentService = {
 
     if (!exam_id) {return 'No exam ID found'};
     try{
-      const response = await axios.get(`${API_BASE_URL}/admin/get_all_students`,
+      const response = await axios.get(`${API_BASE_URL}/user/get_student_result`,
       {headers: headers}
       )      
       return response.data

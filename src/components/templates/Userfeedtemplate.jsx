@@ -20,6 +20,7 @@ const Userfeedtemplate = () => {
     };
     const fetchUser = async() => {
       const res = await authService.getUser()
+      
       if (res.is_paid) {
         setIsPaid(true)
       }
